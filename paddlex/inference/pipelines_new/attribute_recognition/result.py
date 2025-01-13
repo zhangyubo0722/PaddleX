@@ -19,7 +19,6 @@ import PIL
 from PIL import Image, ImageDraw, ImageFont
 
 from ....utils.fonts import PINGFANG_FONT_FILE_PATH
-from ...utils.io import ImageReader
 from ...common.result import BaseCVResult
 from ...utils.color_map import get_colormap, font_colormap
 
@@ -76,8 +75,6 @@ class AttributeRecResult(BaseCVResult):
 
     def _to_img(self):
         """apply"""
-        img_reader = ImageReader(backend="pillow")
-        image = img_reader.read(self["input_path"])
         boxes = [
             {
                 "coordinate": box["coordinate"],
@@ -86,5 +83,5 @@ class AttributeRecResult(BaseCVResult):
             }
             for box in self["boxes"]
         ]
-        image = draw_attribute_result(image, boxes)
-        return image
+        image = draw_attribute_result(self["input_img"], boxes)
+        return {"res": image}
