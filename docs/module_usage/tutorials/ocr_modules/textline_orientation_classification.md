@@ -52,8 +52,8 @@ for res in output:
 ```
 
 运行后，得到的结果为：
-```josn
-{'res': {'input_path': 'test_imgs/textline_rot180_demo.jpg', 'class_ids': [1], 'scores': [1.0], 'label_names': ['180_degree']}}
+```bash
+{'res': {'input_path': 'test_imgs/textline_rot180_demo.jpg', 'page_index': None, 'class_ids': array([1], dtype=int32), 'scores': array([1.], dtype=float32), 'label_names': ['180_degree']}}
 ```
 
 运行结果参数含义如下：
